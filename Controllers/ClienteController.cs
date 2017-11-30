@@ -36,17 +36,15 @@ namespace Restful.Controllers
         public void Put(int id, [FromBody]Cliente cliente)
         {
             int index = clientes.FindIndex(c => c.Id == id);
-            if (index > 0)
+            if (index >= 0)
                 clientes[index] = cliente;
-            else
-                clientes.Add(cliente);
         }
 
         // DELETE: api/Cliente/5
         public void Delete(int id)
         {
             int index = clientes.FindIndex(c => c.Id == id);
-            if (index > 0)
+            if (index >= 0)
                 clientes.RemoveAt(index);
         }
     }

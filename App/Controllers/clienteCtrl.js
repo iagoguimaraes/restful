@@ -1,52 +1,55 @@
-﻿angular.module('app').controller('clienteCtrl', function ($scope) {
+﻿angular.module('app').controller('clienteCtrl', function ($scope, $http) {
 
-    $scope.cadastrar = {};
-    $scope.editar = {};
-    $scope.remover = 0;
+    $scope.clienteCadastrar = {};
+    $scope.clienteEditar = {};
     $scope.clientes = [];
 
-
     $scope.obter = function () {
-        $.ajax({
+        $http({
             method: 'GET',
             url: "api/cliente",
-        }).done(function (r) {
-            $scope.clientes = r;
-            $scope.$apply();
+        }).then(function (r) {
+            $scope.clientes = r.data;
         });
     };
 
     $scope.cadastrar = function () {
-        $.ajax({
+        $http({
             method: 'POST',
             url: "api/cliente",
-            data: $scope.cadastrar,
-        }).done(function (r) {
-            $scope.cadastrar = {};
+            data: $scope.clienteCadastrar,
+        }).then(function (r) {
+            $scope.clienteCadastrar = {};
             $scope.obter();
         });
     };
 
     $scope.editar = function () {
-        $.ajax({
+        $http({
             method: 'PUT',
-            url: "api/cliente/" + $scope.editar.id,
-            data: $scope.editar,
-        }).done(function (r) {
-            $scope.editar = {};
+            url: "api/cliente/" + $scope.clienteEditar.Id,
+            data: $scope.clienteEditar,
+        }).then(function (r) {
+            $scope.clienteEditar = {};
             $scope.obter();
         });
     };
 
     $scope.remover = function () {
-        $.ajax({
-            method: 'DELETE',
-            url: "api/cliente/" + $scope.remover,
-        }).done(function (r) {
-            $scope.remover = 0;
-            $scope.obter();
-        });
+        if (confirm('certeza?')) {
+            $http({
+                method: 'DELETE',
+                url: "api/cliente/" + $scope.clienteEditar.Id,
+            }).then(function (r) {
+                $scope.clienteEditar = {};
+                $scope.obter();
+            });
+        }
     };
+
+    $scope.popular = function (c) {
+        $scope.clienteEditar = c;
+    }
 
     $scope.obter();
 
