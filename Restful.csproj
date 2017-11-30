@@ -149,7 +149,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App\app.js" />
+    <Content Include="App\Controllers\clienteCtrl.js" />
+    <Content Include="App\route.js" />
     <Content Include="Global.asax" />
+    <Content Include="Index.html" />
+    <Content Include="Views\cliente.html" />
+    <Content Include="Views\main.html" />
+    <Content Include="Views\produto.html" />
+    <Content Include="Views\venda.html" />
+    <Content Include="Views\vendas.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -179,7 +188,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

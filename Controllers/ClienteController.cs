@@ -11,7 +11,7 @@ namespace Restful.Controllers
     public class ClienteController : ApiController
     {
 
-        List<Cliente> clientes = new List<Cliente>();
+        static List<Cliente> clientes = new List<Cliente>();
 
         // GET: api/Cliente
         public List<Cliente> Get()
@@ -28,6 +28,7 @@ namespace Restful.Controllers
         // POST: api/Cliente
         public void Post([FromBody]Cliente cliente)
         {
+            cliente.Id = clientes.DefaultIfEmpty(new Cliente()).Max(c => c.Id) + 1;
             clientes.Add(cliente);
         }
 

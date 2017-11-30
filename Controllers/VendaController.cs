@@ -10,7 +10,7 @@ namespace Restful.Controllers
 {
     public class VendaController : ApiController
     {
-        List<Venda> vendas = new List<Venda>();
+        static List<Venda> vendas = new List<Venda>();
 
         // GET: api/Venda
         public List<Venda> Get()

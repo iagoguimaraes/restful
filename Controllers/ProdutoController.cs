@@ -10,7 +10,7 @@ namespace Restful.Controllers
 {
     public class ProdutoController : ApiController
     {
-        List<Produto> produtos = new List<Produto>();
+        static List<Produto> produtos = new List<Produto>();
 
         // GET: api/Produto
         public List<Produto> Get()

@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Restful</title>
+    <meta charset="utf-8" />
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body ng-app="app">
+
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#!/">Restful</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Venda <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#!/venda">Cadastrar</a></li>
+                            <li><a href="#!/vendas">Listar</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#!/produto">Produto</a></li>
+                    <li><a href="#!/cliente">Cliente</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+
+    <div class="container">
+        <ng-view></ng-view>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-route.min.js"></script>
+    <script src="App/app.js"></script>
+    <script src="App/Controllers/clienteCtrl.js"></script>
+    <script src="App/route.js"></script>
+
+</body>
+</html>
