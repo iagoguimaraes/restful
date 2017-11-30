@@ -8,12 +8,15 @@
         controller: "clienteCtrl"
     })
     .when("/produto", {
-        templateUrl: "Views/produto.html"
+        templateUrl: "Views/produto.html",
+        controller: "produtoCtrl"
     })
     .when("/venda", {
-        templateUrl: "Views/venda.html"
+        templateUrl: "Views/venda.html",
+        controller: "vendaCtrl"
     })
     .when("/vendas", {
-        templateUrl: "Views/vendas.html"
+        templateUrl: "Views/vendas.html",
+        controller: "vendasCtrl"
     });
 });

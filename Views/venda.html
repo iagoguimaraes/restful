@@ -1,1 +1,18 @@
 ﻿<h1>VENDA</h1>
+
+<div class="form-group">
+    <label for="nome">Data</label>
+    <input type="text" class="form-control" placeholder="dd/mm/aaaa" ng-model="vendaCadastrar.Data">
+</div>
+
+<div class="form-group">
+    <label for="nome">Cliente</label>
+    <select ng-model="vendaCadastrar.Cliente" ng-options="c.Nome for c in clientes"></select>
+</div>
+
+<div class="form-group">
+    <label for="nome">Produto</label>
+    <select ng-model="vendaCadastrar.Produto" ng-options="p.Descricao for p in produtos"></select>
+</div>
+
+<button type="button" class="btn btn-primary" ng-click="cadastrar()" data-dismiss="modal">Cadastrar</button>

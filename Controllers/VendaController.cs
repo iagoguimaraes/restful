@@ -27,23 +27,9 @@ namespace Restful.Controllers
         // POST: api/Venda
         public void Post([FromBody]Venda venda)
         {
+            venda.Id = vendas.DefaultIfEmpty(new Venda()).Max(c => c.Id) + 1;
             vendas.Add(venda);
         }
 
-        // PUT: api/Venda/5
-        public void Put(int id, [FromBody]Venda venda)
-        {
-            int index = vendas.FindIndex(c => c.Id == id);
-            if (index >= 0)
-                vendas[index] = venda;
-        }
-
-        // DELETE: api/Venda/5
-        public void Delete(int id)
-        {
-            int index = vendas.FindIndex(c => c.Id == id);
-            if (index >= 0)
-                vendas.RemoveAt(index);
-        }
     }
 }

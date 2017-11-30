@@ -27,6 +27,7 @@ namespace Restful.Controllers
         // POST: api/Produto
         public void Post([FromBody]Produto produto)
         {
+            produto.Id = produtos.DefaultIfEmpty(new Produto()).Max(c => c.Id) + 1;
             produtos.Add(produto);
         }
 

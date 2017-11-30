@@ -151,6 +151,9 @@
   <ItemGroup>
     <Content Include="App\app.js" />
     <Content Include="App\Controllers\clienteCtrl.js" />
+    <Content Include="App\Controllers\vendaCtrl.js" />
+    <Content Include="App\Controllers\vendasCtrl.js" />
+    <Content Include="App\Controllers\produtoCtrl.js" />
     <Content Include="App\route.js" />
     <Content Include="Global.asax" />
     <Content Include="Index.html" />
