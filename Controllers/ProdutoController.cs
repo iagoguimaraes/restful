@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using Restful.Daos;
 
 namespace Restful.Controllers
 {
@@ -16,12 +17,7 @@ namespace Restful.Controllers
         public List<Produto> Get()
         {
             return produtos;
-        }
-
-        // GET: api/Produto/5
-        public Produto Get(int id)
-        {
-            return produtos.Where(c => c.Id == id).First();
+            //return ProdutoDao.Obter();
         }
 
         // POST: api/Produto
@@ -29,6 +25,7 @@ namespace Restful.Controllers
         {
             produto.Id = produtos.DefaultIfEmpty(new Produto()).Max(c => c.Id) + 1;
             produtos.Add(produto);
+            //ProdutoDao.Cadastrar(produto);
         }
 
         // PUT: api/Produto/5
@@ -37,6 +34,7 @@ namespace Restful.Controllers
             int index = produtos.FindIndex(c => c.Id == id);
             if (index >= 0)
                 produtos[index] = produto;
+            //ProdutoDao.Editar(produto);
         }
 
         // DELETE: api/Produto/5
@@ -45,6 +43,7 @@ namespace Restful.Controllers
             int index = produtos.FindIndex(c => c.Id == id);
             if (index >= 0)
                 produtos.RemoveAt(index);
+            //ProdutoDao.Remover(id);
         }
     }
 }

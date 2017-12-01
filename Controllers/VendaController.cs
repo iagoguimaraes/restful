@@ -1,4 +1,5 @@
-﻿using Restful.Models;
+﻿using Restful.Daos;
+using Restful.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,12 +17,7 @@ namespace Restful.Controllers
         public List<Venda> Get()
         {
             return vendas;
-        }
-
-        // GET: api/Venda/5
-        public Venda Get(int id)
-        {
-            return vendas.Where(c => c.Id == id).First();
+            //return VendaDao.Obter();
         }
 
         // POST: api/Venda
@@ -29,6 +25,7 @@ namespace Restful.Controllers
         {
             venda.Id = vendas.DefaultIfEmpty(new Venda()).Max(c => c.Id) + 1;
             vendas.Add(venda);
+            //VendaDao.Cadastrar(venda);
         }
 
         // PUT: api/Venda/5
@@ -37,6 +34,7 @@ namespace Restful.Controllers
             int index = vendas.FindIndex(c => c.Id == id);
             if (index >= 0)
                 vendas[index] = venda;
+            //VendaDao.Editar(venda);
         }
 
         // DELETE: api/Venda/5
@@ -45,6 +43,7 @@ namespace Restful.Controllers
             int index = vendas.FindIndex(c => c.Id == id);
             if (index >= 0)
                 vendas.RemoveAt(index);
+            //VendaDao.Remover(id);
         }
 
     }

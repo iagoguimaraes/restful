@@ -1,4 +1,5 @@
-﻿using Restful.Models;
+﻿using Restful.Daos;
+using Restful.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,12 +18,7 @@ namespace Restful.Controllers
         public List<Cliente> Get()
         {
             return clientes;
-        }
-
-        // GET: api/Cliente/5
-        public Cliente Get(int id)
-        {
-            return clientes.Where(c => c.Id == id).First();
+            //return ClienteDao.Obter();
         }
 
         // POST: api/Cliente
@@ -30,6 +26,7 @@ namespace Restful.Controllers
         {
             cliente.Id = clientes.DefaultIfEmpty(new Cliente()).Max(c => c.Id) + 1;
             clientes.Add(cliente);
+            //ClienteDao.Cadastrar(cliente);
         }
 
         // PUT: api/Cliente/5
@@ -38,6 +35,7 @@ namespace Restful.Controllers
             int index = clientes.FindIndex(c => c.Id == id);
             if (index >= 0)
                 clientes[index] = cliente;
+            //ClienteDao.Editar(cliente);
         }
 
         // DELETE: api/Cliente/5
@@ -46,6 +44,7 @@ namespace Restful.Controllers
             int index = clientes.FindIndex(c => c.Id == id);
             if (index >= 0)
                 clientes.RemoveAt(index);
+            //ClienteDao.Remover(id);
         }
     }
 }
