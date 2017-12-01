@@ -158,6 +158,10 @@
     <Content Include="App\route.js" />
     <Content Include="Global.asax" />
     <Content Include="Index.html" />
+    <Content Include="SqlScripts\proceduresCliente.sql" />
+    <Content Include="SqlScripts\proceduresProduto.sql" />
+    <Content Include="SqlScripts\proceduresVenda.sql" />
+    <Content Include="SqlScripts\tabelas.sql" />
     <Content Include="Views\cliente.html" />
     <Content Include="Views\main.html" />
     <Content Include="Views\produto.html" />
